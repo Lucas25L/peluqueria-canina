@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -104,6 +105,18 @@ public class ModificarDatos extends javax.swing.JFrame {
             }
         });
 
+        txtCelular.setToolTipText("Ej: 3624878909");
+        txtCelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCelularActionPerformed(evt);
+            }
+        });
+        txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCelularKeyTyped(evt);
+            }
+        });
+
         areaObservacion.setColumns(20);
         areaObservacion.setRows(5);
         jScrollPane1.setViewportView(areaObservacion);
@@ -112,6 +125,7 @@ public class ModificarDatos extends javax.swing.JFrame {
 
         comboAtencionEspecial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "SI", "NO" }));
 
+        txtAlergia.setToolTipText("Ej: productos de higiene");
         txtAlergia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAlergiaActionPerformed(evt);
@@ -210,6 +224,11 @@ public class ModificarDatos extends javax.swing.JFrame {
         );
 
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+        });
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
@@ -217,6 +236,11 @@ public class ModificarDatos extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar cambios");
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseEntered(evt);
+            }
+        });
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -351,6 +375,25 @@ public class ModificarDatos extends javax.swing.JFrame {
         pantallaPrincipal.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void txtCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCelularActionPerformed
+
+    private void txtCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCelularKeyTyped
+        char c = evt.getKeyChar();
+            if(!Character.isDigit(c)){
+                evt.consume(); //Ignorar caracteres no numéricos
+            }
+    }//GEN-LAST:event_txtCelularKeyTyped
+
+    private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
+        
+    }//GEN-LAST:event_btnGuardarMouseEntered
+
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        
+    }//GEN-LAST:event_btnLimpiarMouseEntered
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaObservacion;

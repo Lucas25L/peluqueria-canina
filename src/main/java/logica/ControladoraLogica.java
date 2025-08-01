@@ -6,6 +6,10 @@ import persistencia.ControladoraPersistencia;
 
 public class ControladoraLogica {
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
+    
+    public List<Mascota> traerMascotas() {
+        return controlPersis.findMascotaEntities();
+    }
 
     public void guardar(String nombreMasco, String razaMasco,
         String colorMasco, String obsMasco, String alergicoMasco, String atencionEspecial,

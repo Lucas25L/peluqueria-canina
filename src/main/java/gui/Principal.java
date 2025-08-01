@@ -1,6 +1,9 @@
 package gui;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import javax.swing.ImageIcon;
 
 public class Principal extends javax.swing.JFrame {
@@ -8,14 +11,51 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         
-    // cargamos la imagen
-    ImageIcon iconoOriginal = new ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\5clasepooTrabajoFinal\\assets\\perrito.png");
-    // redimensionamos la imagen
-    Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(325, 325, Image.SCALE_SMOOTH);
-    // Creamos un nuevo ImageIcon con la imagen escalada
-    ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
-    // lo asignamos al label
-    imgPerrito.setIcon(iconoRedimensionado);
+        // --- CÓDIGO PARA MEJORAR EL LAYOUT ---
+        // Se aplica un GridBagLayout al panel principal para centrar los componentes.
+        // Esto reemplaza al GroupLayout generado automáticamente.
+
+        // Paso 1: Obtener el panel principal
+        GridBagLayout layout = new GridBagLayout();
+        jPanel1.setLayout(layout);
+        
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.insets = new Insets(10, 10, 10, 10); // Margen entre componentes
+
+        // Paso 2: Colocar el título (jLabel1) en la parte superior central
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2; // Ocupa dos columnas
+        gbc.weighty = 0.1; // Se expande verticalmente
+        layout.setConstraints(jLabel1, gbc);
+
+        // Paso 3: Colocar el panel de botones (jPanel2)
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0.5; // Ocupa la mitad del espacio horizontal
+        gbc.weighty = 0.9; // Ocupa la mayor parte del espacio vertical
+        layout.setConstraints(jPanel2, gbc);
+
+        // Paso 4: Colocar la imagen del perro (imgPerrito)
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.weightx = 0.5; // Ocupa la otra mitad del espacio horizontal
+        gbc.weighty = 0.9; // Ocupa la mayor parte del espacio vertical
+        layout.setConstraints(imgPerrito, gbc);
+
+        // --- FIN DEL CÓDIGO DE MEJORA DEL LAYOUT ---
+        
+        // Cargamos y redimensionamos la imagen del perrito
+        ImageIcon iconoOriginal = new ImageIcon("C:\\Users\\Estudiante\\Documents\\NetBeansProjects\\5clasepooTrabajoFinal\\assets\\perrito.png");
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(325, 325, Image.SCALE_SMOOTH);
+        ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
+        imgPerrito.setIcon(iconoRedimensionado);
+        
+        // Se establecen las propiedades de la ventana
+        setLocationRelativeTo(null); // Centra la ventana al iniciar
+        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH); // Inicia en pantalla completa
     }
     
     
@@ -93,18 +133,18 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(imgPerrito, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
+                .addGap(287, 287, 287)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +161,7 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1074, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
